@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 92%;
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 92%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 92%;
+    --primary: 210 40% 92%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 92%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 217 32% 20%;
+    --accent-foreground: 210 40% 92%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 92%;
+    --border: 217 32% 18%;
+    --input: 217 32% 18%;
+    --ring: 213 93% 67%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ── RPG XP Bar ── */
+.xp-bar-track {
+  @apply relative h-3 w-full overflow-hidden rounded-full bg-white/10;
+}
+
+.xp-bar-fill {
+  @apply h-full rounded-full transition-none;
+  width: var(--xp-width, 0%);
+  animation: xp-fill-anim 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes xp-fill-anim {
+  from { width: var(--xp-prev-width, 0%); }
+  to   { width: var(--xp-width, 0%); }
+}
+
+/* ── Glow pulse for active stat cards ── */
+.stat-card-glow {
+  animation: glow-pulse-anim 3s ease-in-out infinite;
+}
+
+@keyframes glow-pulse-anim {
+  0%, 100% { box-shadow: 0 0 6px var(--glow-color), 0 0 0 1px var(--glow-color); }
+  50%       { box-shadow: 0 0 18px var(--glow-color), 0 0 0 1px var(--glow-color); }
+}
+
+/* ── Level-up overlay ── */
+.level-up-enter {
+  animation: level-up-enter-anim 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes level-up-enter-anim {
+  from { transform: scale(0.5) translateY(20px); opacity: 0; }
+  to   { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* ── Scanline overlay for RPG card aesthetic ── */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ── Shimmer loading skeleton ── */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-anim 1.5s linear infinite;
+}
+
+@keyframes shimmer-anim {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Budget meter gradient ── */
+.budget-bar-full    { @apply bg-emerald-500; }
+.budget-bar-mid     { @apply bg-yellow-400; }
+.budget-bar-low     { @apply bg-orange-400; }
+.budget-bar-empty   { @apply bg-red-500; }
+
+/* ── Smooth scrollbar ── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { @apply bg-transparent; }
+::-webkit-scrollbar-thumb  { @apply rounded-full bg-white/10; }
+::-webkit-scrollbar-thumb:hover { @apply bg-white/20; }

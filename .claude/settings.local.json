@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(grep -E \"tailwindcss-animate|tailwindcss$\")",
+      "Bash(npx tsc:*)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}

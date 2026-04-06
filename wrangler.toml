@@ -1,0 +1,9 @@
+name = "status-leveling"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".open-next/assets"
+
+[vars]
+# Set these in the Cloudflare dashboard — do not commit real values here
+NEXT_PUBLIC_SUPABASE_URL = ""
+NEXT_PUBLIC_SUPABASE_ANON_KEY = ""

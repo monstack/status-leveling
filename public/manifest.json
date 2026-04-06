@@ -1,0 +1,24 @@
+{
+  "name": "Status Leveling",
+  "short_name": "Status",
+  "description": "Level up your life stats daily",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#070d1a",
+  "theme_color": "#0a0f1e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
