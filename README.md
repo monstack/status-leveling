@@ -67,6 +67,8 @@ Level 10: 5500 XP (~550h)
 - [ ] **Skill Trees** — Technical → Cloud Architect / DevOps / FinOps sub-classes
 - [ ] **Streaks** — consecutive day tracking
 - [ ] **Export** — CSV/JSON data export
+- [ ] **Clear day** — delete all entries for a specific date directly from the app
+- [ ] **Clear all** — full reset button to wipe all log history and start fresh
 
 ---
 
