@@ -1,7 +1,11 @@
 name = "status-leveling"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = ".open-next/assets"
+main = ".open-next/worker.js"
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
 
 [vars]
 # Set these in the Cloudflare dashboard — do not commit real values here
